@@ -11,7 +11,7 @@
 
 
 
-
+First LXC 
 
 
 
@@ -23,7 +23,7 @@ Listed below is all the software I use, select the one you want to know more abo
 
 + <a href="#Installation">Hardware to run Proxmox on</a>
 
-+ <a href="#Installation">Installation</a>
++ <a href="#Installing_Proxmox">Installing Proxmox</a>
 
 + <a href="#Proxmox_to_USB_Drive">Connect to a External Drive</a>
 	+ <a href="#Proxmox_to_USB_Drive">Connect to a USB Drive</a>
@@ -36,14 +36,6 @@ Listed below is all the software I use, select the one you want to know more abo
 </details>  
 
 <a href="https://github.com/HomeStudiosDIY/HomeStudiosDIY/blob/main/README.md">Back to Home Page</a>
-
-
-
-
-
-
-
-
 
 
 
@@ -96,11 +88,12 @@ https://community-scripts.github.io/ProxmoxVE/scripts?id=scaling-governor
 
 
 
-<a id="Proxmox_Installation"></a>
-## Proxmox Installation
+<a id="Installing_Proxmox"></a>
+## Installing Proxmox
 
-Link to YouTube Video
-##### Coming Soon!!
+Here is a link to my YouTube video covering all the steps if you don't like reading.
+
++ Link Coming Soon!!
 
 
 
