@@ -5,7 +5,27 @@
 
 
 
+#### Overview
 
+Proxmox delivers powerful, enterprise-grade solutions with full access to all functionality for everyone - highly reliable and secure. The software-defined and open platforms are easy to deploy, manage and budget for. 
+ 
++ https://www.proxmox.com/en/
+
+
+#### Guides
+If you want to start you new Smart Home and set the foundations Proxmox will allow you to start small but also have the capability to easily expand and add more complicated software.  
+The link below will take you to all the guides starting with how to install Proxmox. The first component you will need if you are going to full my guides on how to install some other stuff like Home Assistant and more. You will also find more advanced guides like GPU passthroo and more. 
+
+
+
++ #### Coming Soon!!
+
+
+
+<!--
+
+
+-->
 
 
 
@@ -21,9 +41,10 @@ Listed below is all the software I use, select the one you want to know more abo
 
 <summary><u>Table of Contents</u></summary>
 
-+ <a href="#Installation">Hardware to run Proxmox on</a>
++ <a href="#Hardware_Needed_for_Proxmox">Hardware Needed for Proxmox</a>
 
 + <a href="#Installing_Proxmox">Installing Proxmox</a>
+	+ <a href="#Installing_Proxmox">Post Installation of Proxmox</a>
 
 + <a href="#Proxmox_to_USB_Drive">Connect to a External Drive</a>
 	+ <a href="#Proxmox_to_USB_Drive">Connect to a USB Drive</a>
@@ -40,7 +61,12 @@ Listed below is all the software I use, select the one you want to know more abo
 
 
 
+<a id="Hardware_Needed_for_Proxmox"></a>
 ## Hardware to run Proxmox on
+
+
+
+
 
 
 Hardware to run Proxmox
@@ -51,6 +77,8 @@ CPU: Ryzen 5 PRO 2400GE (QUAD CORE)
 SSD: 256GB SSD
 RAM: 16GB DDR4
 
+
+
 Other once I have done for friends
 
 Just running Proxmox, Home Assistant and Frigate
@@ -58,10 +86,11 @@ NUC & charger Intel Celeron(R) CPU 847E 1.1ghz 6gb RAM Chrome OS Cloud Ready
 
 Google Coral - Edge TPU Accelerator - Mini PCIe - Frigate - AI - MobileNet V2
 
+
 USB Disk for Cam recordings
 
 
-Prodaction System
+My Production System:
 
 AMD Ryzen 7 5800X
 126GB Ram
@@ -78,6 +107,8 @@ Here with some config settings to help you get you ProxMox Server setup and work
 
 I run all my application on a LXC inside Docker but you can run the LXC application directly this was just my preference for consistency as not all application I use can run directly on a LXC. All my LXC config and Docker Compose files will also be sheared.
 
+
+
 https://community-scripts.github.io/ProxmoxVE/
 
 
@@ -85,6 +116,8 @@ https://community-scripts.github.io/ProxmoxVE/
 
 
 https://community-scripts.github.io/ProxmoxVE/scripts?id=scaling-governor
+
+
 
 
 
@@ -122,9 +155,43 @@ boot from the USB
 
 
 Proxmox installer
+
+
 nomodeset
 
 
+
+
+<a id="Installing_Proxmox"></a>
+### Post Installation of Proxmox
+
+
+
+
+
+
+
+
+
+apt update && apt list --upgradable
+Install one of the microcode packages according to your CPU manufacturer.
+
+# Intel CPU
+apt install intel-microcode
+# AMD CPU
+apt install amd64-microcode
+
+Reboot the Proxmox host.
+
+reboot
+Verify that microcode is loaded.
+
+journalctl -k --grep="microcode updated early to"
+
+You should see similar output like this.
+
+Sep 10 11:38:55 pve kernel: microcode: microcode updated early to revision 0x24000024, date = 2022-09-02
+Note: The date displayed does not correspond to the version of the [intel-microcode] package installed. It does show the last time Intel updated the microcode that corresponds to the specific hardware being updated.
 
 
 
@@ -198,7 +265,6 @@ Change for you system
 
 ```
 10.0.0.1:/volume1/Stream/ /mnt/data/stream nfs defaults 0 0
-10.0.0.1:/volumeUSB1/usbshare /mnt/data/usb nfs defaults 0 0
 10.0.0.1:/volume1/Photos-Link /mnt/data/photos nfs defaults 0 0
 10.0.0.1:/volume1/Downloads /mnt/data/downloads nfs defaults 0 0
 ```
@@ -232,6 +298,13 @@ Only follow this if you have a NVIDIA card to use the GPU
 + ### Install NVIDIA Drivers on ProxMox 
 
 	You will need to get the latest NVIDIA drivers from the following site
+
+
+
+Install build packages:
+```
+apt install build-essential pve-headers-$(uname -r)
+```
 
 	Setup Guide
 	```
@@ -270,6 +343,7 @@ Only follow this if you have a NVIDIA card to use the GPU
 	```
 
 
+nvtop
 
 	```
 	nvidia-smi  
@@ -278,7 +352,7 @@ Only follow this if you have a NVIDIA card to use the GPU
 
 <p align="right"><a href="#readme_top">back to top</a></p>
 
-<a id="install-nvidia-drivers-on-proxmox"></a>
+awa<a id="install-nvidia-drivers-on-proxmox"></a>
 + ### Installing NVIDIA Drivers on your LXC's:
 
 	I have the following LXC setup to use my NVIDA card (immich, Jellyfin, Plex, Ollama and Tadarr)
@@ -288,10 +362,10 @@ Only follow this if you have a NVIDIA card to use the GPU
 	```
 
 	```
-	chmod +x NVIDIA-Linux-x86_64-550.144.03.run
+	chmod +x NVIDIA-Linux-x86_64-580.95.05.run
 	```
 	```
-	./NVIDIA-Linux-x86_64-550.144.03.run --no-kernel-modules
+	./NVIDIA-Linux-x86_64-580.95.05.run --no-kernel-modules
 	```
 
 	```
@@ -370,6 +444,17 @@ Only follow this if you have a NVIDIA card to use the GPU
 	```
 	nvidia-smi  
 	```
+
+
+
+
+
+
+
+
+ nano etc/resolv.conf
+
+
 
 
 <p align="right"><a href="#readme_top">back to top</a></p>
