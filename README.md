@@ -2,19 +2,16 @@
 ## Proxmox
 
 
-
-
-
 #### Overview
 
 Proxmox delivers powerful, enterprise-grade solutions with full access to all functionality for everyone - highly reliable and secure. The software-defined and open platforms are easy to deploy, manage and budget for. 
  
 + https://www.proxmox.com/en/
 
-
 #### Guides
+
 If you want to start you new Smart Home and set the foundations Proxmox will allow you to start small but also have the capability to easily expand and add more complicated software.  
-The link below will take you to all the guides starting with how to install Proxmox. The first component you will need if you are going to full my guides on how to install some other stuff like Home Assistant and more. You will also find more advanced guides like GPU passthroo and more. 
+The link below will take you to all the guides starting with how to install Proxmox. The first component you will need if you are going to full my guides on how to install some other stuff like Home Assistant and more. You will also find more advanced guides like GPU pasthroo and more. 
 
 
 
@@ -22,10 +19,9 @@ The link below will take you to all the guides starting with how to install Prox
 
 
 
-<!--
 
 
--->
+
 
 
 
@@ -61,13 +57,14 @@ Listed below is all the software I use, select the one you want to know more abo
 
 
 
+
+<!--
+
+
+
+
 <a id="Hardware_Needed_for_Proxmox"></a>
 ## Hardware to run Proxmox on
-
-
-
-
-
 
 Hardware to run Proxmox
 
@@ -157,9 +154,13 @@ boot from the USB
 Proxmox installer
 
 
+
+
+
+
+```
 nomodeset
-
-
+```
 
 
 <a id="Installing_Proxmox"></a>
@@ -177,14 +178,19 @@ apt update && apt list --upgradable
 Install one of the microcode packages according to your CPU manufacturer.
 
 # Intel CPU
+
 apt install intel-microcode
+
 # AMD CPU
+
 apt install amd64-microcode
 
 Reboot the Proxmox host.
 
 reboot
 Verify that microcode is loaded.
+
+
 
 journalctl -k --grep="microcode updated early to"
 
@@ -460,6 +466,13 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 <p align="right"><a href="#readme_top">back to top</a></p>
 
 
+-->
 
 
+
+
+<!--
+
+
+-->
 
