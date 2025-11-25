@@ -1,3 +1,5 @@
+
+
 <a id="readme_top"></a>
 ## Proxmox
 
@@ -27,7 +29,6 @@ The link below will take you to all the guides starting with how to install Prox
 
 
 
-First LXC 
 
 
 
@@ -64,17 +65,13 @@ Listed below is all the software I use, select the one you want to know more abo
 
 
 <a id="Hardware_Needed_for_Proxmox"></a>
-## Hardware to run Proxmox on
+## Hardware to run Proxmox:
 
-Hardware to run Proxmox
-
-Demo system 
-HP ProDesk 405 G4 Mini
-CPU: Ryzen 5 PRO 2400GE (QUAD CORE)
-SSD: 256GB SSD
-RAM: 16GB DDR4
+Hardware you can use to run Proxmox on. I have listed three different types and there uses.
 
 
+
+Demo System:
 
 Other once I have done for friends
 
@@ -87,6 +84,21 @@ Google Coral - Edge TPU Accelerator - Mini PCIe - Frigate - AI - MobileNet V2
 USB Disk for Cam recordings
 
 
+
+Friends Device:
+7 Cam -
+Google Coral USB Edge TPU ML Accelerator coprocessor for Raspberry Pi and Other Embedded Single Board Computers
+HP ProDesk 405 G4 Mini
+CPU: Ryzen 5 PRO 2400GE (QUAD CORE)
+SSD: 256GB SSD
+RAM: 16GB DDR4
+
+USB Disk for Cam recordings
+
+
+
+
+
 My Production System:
 
 AMD Ryzen 7 5800X
@@ -96,6 +108,7 @@ x2 6 Port 2.5 Gigabit PCI-e x4 Ethernet Network Card
 USB Coral
 
 Google Coral USB Edge TPU ML Accelerator coprocessor for Raspberry Pi and Other Embedded Single Board Computers
+
 
 Synology 
 
@@ -152,11 +165,6 @@ boot from the USB
 
 
 Proxmox installer
-
-
-
-
-
 
 ```
 nomodeset
@@ -464,6 +472,16 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 
 
 <p align="right"><a href="#readme_top">back to top</a></p>
+
+
+
+
+First LXC 
+
+
+
+
+
 
 
 -->
