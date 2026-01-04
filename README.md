@@ -1,7 +1,8 @@
 
+## Proxmox
 
 <a id="readme_top"></a>
-## Proxmox
+
 
 
 #### Overview
@@ -12,8 +13,8 @@ Proxmox delivers powerful, enterprise-grade solutions with full access to all fu
 
 #### Guides
 
-If you want to start you new Smart Home and set the foundations Proxmox will allow you to start small but also have the capability to easily expand and add more complicated software.  
-The link below will take you to all the guides starting with how to install Proxmox. The first component you will need if you are going to full my guides on how to install some other stuff like Home Assistant and more. You will also find more advanced guides like GPU pasthroo and more. 
+If you want to start you new Smart Home and set the foundations from the start the first component Proxmox will allow you to start small but also have the capability to easily expand and add more complicated software later.  
+The links below will take you to all the guides I am working on starting with how to install Proxmox, moving on to more advanced setups like GPU passthrough and adding different application to build your Smart Home starting with Home Assistant and more.
 
 
 
@@ -39,6 +40,7 @@ Listed below is all the software I use, select the one you want to know more abo
 <summary><u>Table of Contents</u></summary>
 
 + <a href="#Hardware_Needed_for_Proxmox">Hardware Needed for Proxmox</a>
+	+ <a href="#Demo_System">Demo System</a>
 
 + <a href="#Installing_Proxmox">Installing Proxmox</a>
 	+ <a href="#Installing_Proxmox">Post Installation of Proxmox</a>
@@ -53,25 +55,30 @@ Listed below is all the software I use, select the one you want to know more abo
 
 </details>  
 
+
+
+
+
+
 <a href="https://github.com/HomeStudiosDIY/HomeStudiosDIY/blob/main/README.md">Back to Home Page</a>
 
 
 
 
 
-<!--
+
+<p align="right"><a href="#readme_top">back to top</a></p>
 
 
-
-
-<a id="Hardware_Needed_for_Proxmox"></a>
 ## Hardware to run Proxmox:
+<a id="Hardware_Needed_for_Proxmox"></a>
 
 Hardware you can use to run Proxmox on. I have listed three different types and there uses.
 
 
 
-Demo System:
+### Demo System:
+<a id="Hardware_Needed_for_Proxmox"></a>
 
 Other once I have done for friends
 
@@ -85,7 +92,8 @@ USB Disk for Cam recordings
 
 
 
-Friends Device:
+### Friends Device:
+<a id="Hardware_Needed_for_Proxmox"></a>
 7 Cam -
 Google Coral USB Edge TPU ML Accelerator coprocessor for Raspberry Pi and Other Embedded Single Board Computers
 HP ProDesk 405 G4 Mini
@@ -99,7 +107,8 @@ USB Disk for Cam recordings
 
 
 
-My Production System:
+### My Production System:
+<a id="Hardware_Needed_for_Proxmox"></a>
 
 AMD Ryzen 7 5800X
 126GB Ram
@@ -131,8 +140,15 @@ https://community-scripts.github.io/ProxmoxVE/scripts?id=scaling-governor
 
 
 
-<a id="Installing_Proxmox"></a>
+
+
+
+
+
+<p align="right"><a href="#readme_top">back to top</a></p>
+
 ## Installing Proxmox
+<a id="Installing_Proxmox"></a>
 
 Here is a link to my YouTube video covering all the steps if you don't like reading.
 
@@ -144,7 +160,7 @@ Here is a link to my YouTube video covering all the steps if you don't like read
 You will need a Computer and also a USB Stick to install Proxmox
 
 
-Download Proxmox instalation file
+Download Proxmox installation file
 https://www.proxmox.com/en/
 
 
@@ -171,10 +187,18 @@ nomodeset
 ```
 
 
-<a id="Installing_Proxmox"></a>
+
+
+
+
+
+
+<p align="right"><a href="#readme_top">back to top</a></p>
+
 ### Post Installation of Proxmox
+<a id="Installing_Proxmox"></a>
 
-
+Overview 
 
 
 
@@ -183,19 +207,27 @@ nomodeset
 
 
 apt update && apt list --upgradable
+
+
+
 Install one of the microcode packages according to your CPU manufacturer.
 
-# Intel CPU
 
-apt install intel-microcode
 
-# AMD CPU
+Depending on the type of CPU you have it's a good standard to instll the corret CPU drivers
 
-apt install amd64-microcode
++ #### Intel CPU
+
+	apt install intel-microcode
+
++ #### AMD CPU
+
+	apt install amd64-microcode
 
 Reboot the Proxmox host.
 
 reboot
+
 Verify that microcode is loaded.
 
 
@@ -222,10 +254,15 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 
 
+
+
+
+
+
 <p align="right"><a href="#readme_top">back to top</a></p>
 
-<a id="Proxmox_to_USB_Drive"></a>
 ## Connect a USB Drive
+<a id="Proxmox_to_USB_Drive"></a>
 
 
 
@@ -234,14 +271,27 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 
 
+
+
+
+
+
 <p align="right"><a href="#readme_top">back to top</a></p>
 
-<a id="Proxmox_to_NFS"></a>
 ## Connect to your NAS with NFS
+<a id="Proxmox_to_NFS"></a>
+
+
+
+
+
 
 # Coming Soon!!
 
 To connect to a NAS device with NFS you will have to setup some paths/directory’s this is how I have done mine but you can use your own location.   
+
+
+
 
 If you need sub folders you will need to make the directory tree.
 	
@@ -299,26 +349,28 @@ mount -a
 
 
 
+
+
+
 <p align="right"><a href="#readme_top">back to top</a></p>
 
-<a id="NVIDIA_Drivers"></a>
-# NVIDIA
+# Installing NVIDIA Drivers <a id="NVIDIA_Drivers"></a>
 
-# Coming Soon!!
 
 Only follow this if you have a NVIDIA card to use the GPU 
 
-<a id="nvidia_drivers_proxmox"></a> 
-+ ### Install NVIDIA Drivers on ProxMox 
+
+
++ ### Install NVIDIA Drivers on Proxmox		<a id="nvidia_drivers_proxmox"></a>
 
 	You will need to get the latest NVIDIA drivers from the following site
 
 
 
-Install build packages:
-```
-apt install build-essential pve-headers-$(uname -r)
-```
+	Install build packages:
+	```
+	apt install build-essential pve-headers-$(uname -r)
+	```
 
 	Setup Guide
 	```
@@ -357,7 +409,7 @@ apt install build-essential pve-headers-$(uname -r)
 	```
 
 
-nvtop
+	nvtop
 
 	```
 	nvidia-smi  
@@ -366,8 +418,8 @@ nvtop
 
 <p align="right"><a href="#readme_top">back to top</a></p>
 
-awa<a id="install-nvidia-drivers-on-proxmox"></a>
-+ ### Installing NVIDIA Drivers on your LXC's:
+
++ ### Installing NVIDIA Drivers on your LXC's:		<a id="install-nvidia-drivers-on-proxmox"></a>
 
 	I have the following LXC setup to use my NVIDA card (immich, Jellyfin, Plex, Ollama and Tadarr)
 
@@ -406,7 +458,7 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 	```
 
 
-	Now we need to edit a file
+	Next we will need to edit the a file
 	```
 	nano /etc/nvidia-container-runtime/config.toml  
 	```
@@ -417,7 +469,7 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 	no-cgroups = true  
 
 
-	now we need to find the card details so we can map this to the LXC
+	Next we need to find the card details so we can map this to the LXC
 
 	```
 	ls -al /dev/nvidia*
@@ -466,7 +518,7 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 
 
 
- nano etc/resolv.conf
+nano etc/resolv.conf
 
 
 
@@ -479,12 +531,6 @@ awa<a id="install-nvidia-drivers-on-proxmox"></a>
 First LXC 
 
 
-
-
-
-
-
--->
 
 
 
